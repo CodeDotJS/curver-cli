@@ -37,7 +37,7 @@ $ curver -u chi-squared
 
 ## Screenshot
 
-![Image Title](Image Source)
+![curver](http://rishigiri.com/github/curver.png)
 
 ## Related 
 
