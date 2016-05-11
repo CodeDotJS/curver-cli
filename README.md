@@ -9,7 +9,8 @@ $ npm install --global curver
 ```
 ## Usage
 
-Usage : cli.js <command> [package-name]
+```
+Usage : curver <command> [package-name]
 
 	Commands:
 		u   ❱ node package's name
