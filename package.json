@@ -1,0 +1,53 @@
+{
+  "name": "curver-cli",
+  "version": "1.0.0",
+  "description": "Easily fetch the latest version of node module available on npm.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codedotjs/curver-cli.git"
+  },
+  "author": "Rishi Giri <rushforlinux@gmail.com> (rishigiri.com)",
+  "bin": {
+    "curver": "cli.js"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && ava"
+  },
+  "files": [
+    "cli.js"
+  ],
+  "keywords": [
+    "cli-app",
+    "cli",
+    "npm",
+    "node",
+    "module",
+    "current",
+    "version",
+    "curver",
+    "latest",
+    "package"
+  ],
+  "dependencies": {
+    "curver": "*",
+    "colors": "*",
+    "yargs": "*"
+  },
+  "devDependencies": {
+    "ava": "*",
+    "execa": "^0.2.2",
+    "xo": "*"
+  },
+  "xo": {
+    "esnext": true
+  },
+  "bugs": {
+    "url": "https://github.com/codedotjs/curver-cli/issues"
+  },
+  "homepage": "https://github.com/codedotjs/curver-cli#readme",
+  "main": "cli.js"
+}
