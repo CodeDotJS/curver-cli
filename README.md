@@ -41,9 +41,9 @@ $ curver -u chi-squared
 
 ## Related 
 
-- [curver](https://github.com/curver) : API for this CLI Tool.
-- [packages-by](https://github.com/packages-by-cli) : Find total packages by a npm user.
-- [packstat](https://github.com/packstat-cli) : Easy way to extract download stats of a node module.
+- [curver](https://github.com/CodeDotJS/curver) : API for this CLI Tool.
+- [packages-by](https://github.com/CodeDotJS/packages-by-cli) : Find total packages by a npm user.
+- [packstat](https://github.com/CodeDotJS/packstat-cli) : Easy way to extract download stats of a node module.
 
 ## License
 
