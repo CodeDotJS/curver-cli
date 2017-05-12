@@ -1,6 +1,6 @@
 {
   "name": "curver-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Easily fetch the latest version of node module available on npm.",
   "license": "MIT",
   "repository": {
