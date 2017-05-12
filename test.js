@@ -1,12 +1,13 @@
 import childProcess from 'child_process';
 import test from 'ava';
 
-test.cb(t => {
-	childProcess.execFile('./cli.js', ['-u packstat'], {
-		cwd: __dirname
-	}, (err, stdout) => {
-		t.ifError(err);
-		t.true(stdout.trim().length > 0);
+test.cb('default', t => {
+	const cp = childProcess.spawn('./cli.js', ['express'], {stdio: 'inherit'});
+
+	cp.on('error', t.ifError);
+
+	cp.on('close', code => {
+		t.is(code, 0);
 		t.end();
 	});
 });
