@@ -2,19 +2,42 @@
 
 'use strict';
 
-const curver = require('curver');
+const dns = require('dns');
+const got = require('got');
+const cheerio = require('cheerio');
+const logUpdate = require('log-update');
+const ora = require('ora');
+const updateNotifier = require('update-notifier');
+const pkg = require('./package.json');
 
-const colors = require('colors/safe');
+updateNotifier({pkg}).notify();
+const arg = process.argv[2];
+const spinner = ora();
 
-const argv = require('yargs')
-	.usage(colors.cyan.bold('\n Usage : $0 <command> [package-name]'))
-	.command('u', ' ❱ node package\'s name')
-	.demand(['u'])
-	.example(colors.cyan.bold('$0 -u chi-squared'))
-	.argv;
+dns.lookup('npmjs.com', err => {
+	if (err) {
+		logUpdate(`\n› Please check your internet connection! \n`);
+		process.exit(1);
+	} else {
+		logUpdate();
+		spinner.text = `Fetching the latest release of ${arg}`;
+		spinner.start();
+	}
+});
 
-const sendMessage = 'Latest vesrion of' + ' ' + argv.u + ' ' + ':';
+if (!arg) {
+	console.log(`
+ Usage: curver <package-name>
 
-console.log(sendMessage);
+ Example:
+   $ curver express
+	`);
+	process.exit(1);
+}
 
-curver(argv.u).then(console.log);
+got(`https://npmjs.com/package/${arg}`).then(res => {
+	const $ = cheerio.load(res.body);
+	const version = $('.box li').eq(1).text().split('is')[0].trim();
+	logUpdate(`\n› ${version} is the latest release of ${arg}\n`);
+	spinner.stop();
+});
